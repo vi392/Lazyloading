@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { Suspense } from 'react'
+// import Lazyloading from './Lazyloading/Lazyloading'
+
+const Lazy= React.lazy(()=>import('./lazylod/Lazyloading')) 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <h2>Hello ji lazy loading </h2> 
+    <Suspense fallback= {<div><h2>loading..</h2></div>}>
+    <Lazy/>
+    </Suspense>
+      
+    </>
+  )
 }
 
-export default App;
+export default App
